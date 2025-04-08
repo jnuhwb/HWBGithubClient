@@ -12,13 +12,21 @@ struct ExploreView: View {
     
     var body: some View {
         VStack {
-            SearchView(isEditing: viewModel.isEditing, searchText: viewModel.searchText)
-            List(viewModel.repositories, id: \.id) { repo in
-                RepositoryRow(repository: repo)
+            SearchView(isEditing: viewModel.isEditing, searchText: viewModel.searchText, viewModel: viewModel)
+
+            if viewModel.isLoading {
+                ProgressView()
+                    .padding()
+            } else {
+                List(viewModel.repositories, id: \.id) { repo in
+                    RepositoryRow(repository: repo)
+                }
             }
+            
+            Spacer()
         }
         .onAppear() {
-            viewModel.fetchRepositories(keyword: "")
+            viewModel.fetchRepositories(keyword: nil)
         }
     }
 }
@@ -42,11 +50,15 @@ struct RepositoryRow: View {
 struct SearchView: View {
     @State var isEditing: Bool
     @State var searchText: String
+    var viewModel: ExploreViewModel
     
     var body: some View {
         HStack {
             Image(systemName: "magnifyingglass")
                 .foregroundColor(.gray)
+                .onTapGesture {
+                    viewModel.fetchRepositories(keyword: self.searchText)
+                }
             
             TextField("Search...", text: $searchText, onEditingChanged: { isEditing in
                 self.isEditing = isEditing

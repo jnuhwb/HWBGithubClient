@@ -48,6 +48,7 @@ class NetworkManager {
             completion(.failure(NetworkError.invalidURL))
             return
         }
+        print("请求url: \(finalURL)")
         
         var request = URLRequest(url: finalURL)
         request.httpMethod = "GET"
