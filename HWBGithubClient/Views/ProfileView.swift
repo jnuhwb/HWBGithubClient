@@ -8,12 +8,13 @@
 import SwiftUI
 
 struct ProfileView: View {
+    @ObservedObject var authManager = AuthManager.shared
     @StateObject private var viewModel = ProfileViewModel()
     
     var body: some View {
         NavigationView {
             Group {
-                if AuthManager.shared.isAuthenticated {
+                if authManager.isAuthenticated {
                     authenticatedView
                 } else {
                     unauthenticatedView
@@ -38,7 +39,7 @@ struct ProfileView: View {
                 .foregroundColor(.secondary)
             
             Button(action: {
-                //todo login
+                AuthManager.shared.loginWithGitHub()
             }) {
                 Text("登录")
                     .font(.headline)

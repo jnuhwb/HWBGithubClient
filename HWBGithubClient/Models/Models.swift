@@ -37,3 +37,11 @@ struct SearchResponse: Codable {
         case items
     }
 }
+
+struct TokenResponse: Codable {
+    let accessToken: String
+    
+    enum CodingKeys: String, CodingKey {
+        case accessToken = "access_token"
+    }
+}
