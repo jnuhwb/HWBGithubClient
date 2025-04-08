@@ -7,6 +7,7 @@
 
 import Foundation
 import AuthenticationServices
+import LocalAuthentication
 
 enum AuthError: Error {
     case invalidCredentials
@@ -91,6 +92,8 @@ class AuthManager: NSObject, ObservableObject, ASWebAuthenticationPresentationCo
                     DispatchQueue.main.async {
                         self.accessToken = tokenResponse.accessToken
                         self.isAuthenticated = true
+                        
+                        StorageManager.shared.saveAccessToken(self.accessToken)
                     }
                 }
             }
@@ -105,5 +108,23 @@ class AuthManager: NSObject, ObservableObject, ASWebAuthenticationPresentationCo
             fatalError("No window found")
         }
         return window
+    }
+    
+    func loginWithBiometric() {
+        let context = LAContext()
+        context.evaluatePolicy(
+            .deviceOwnerAuthenticationWithBiometrics,
+            localizedReason: "使用生物识别登录"
+        ) { success, error in
+            if success {
+                if let token = StorageManager.shared.getAccessToken() {
+                    DispatchQueue.main.async {
+                        self.accessToken = token
+                        self.isAuthenticated = true
+                    }
+                }
+            }
+            
+        }
     }
 }

@@ -39,7 +39,7 @@ struct ProfileView: View {
                 .foregroundColor(.secondary)
             
             Button(action: {
-                AuthManager.shared.loginWithGitHub()
+                authManager.loginWithGitHub()
             }) {
                 Text("登录")
                     .font(.headline)
@@ -51,7 +51,7 @@ struct ProfileView: View {
             .padding(.top, 20)
             
             Button(action: {
-                //todo login with face
+                authManager.loginWithBiometric()
             }) {
                 Text("面容登录")
                     .font(.headline)
