@@ -17,6 +17,9 @@ struct ExploreView: View {
                 RepositoryRow(repository: repo)
             }
         }
+        .onAppear() {
+            viewModel.fetchRepositories(keyword: "")
+        }
     }
 }
 

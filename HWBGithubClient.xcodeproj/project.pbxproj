@@ -22,6 +22,7 @@
 		C103ADBE2DA56285001DF622 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = C103ADBD2DA56285001DF622 /* Models.swift */; };
 		C103ADC02DA56D0F001DF622 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C103ADBF2DA56D0F001DF622 /* ProfileViewModel.swift */; };
 		C103ADC22DA56F99001DF622 /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C103ADC12DA56F99001DF622 /* AuthManager.swift */; };
+		C103ADC42DA572F9001DF622 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C103ADC32DA572F9001DF622 /* NetworkManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +61,7 @@
 		C103ADBD2DA56285001DF622 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		C103ADBF2DA56D0F001DF622 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		C103ADC12DA56F99001DF622 /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
+		C103ADC32DA572F9001DF622 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,7 +115,6 @@
 			children = (
 				C103ADAE2DA55B03001DF622 /* Managers */,
 				C103ADB02DA55B03001DF622 /* Models */,
-				C103ADB22DA55B03001DF622 /* NetworkManager */,
 				C103ADAF2DA55B03001DF622 /* ViewModels */,
 				C103ADB12DA55B03001DF622 /* Views */,
 				C103AD842DA559C5001DF622 /* HWBGithubClientApp.swift */,
@@ -153,6 +154,7 @@
 			isa = PBXGroup;
 			children = (
 				C103ADC12DA56F99001DF622 /* AuthManager.swift */,
+				C103ADC32DA572F9001DF622 /* NetworkManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -182,13 +184,6 @@
 				C103ADB72DA55B40001DF622 /* ProfileView.swift */,
 			);
 			path = Views;
-			sourceTree = "<group>";
-		};
-		C103ADB22DA55B03001DF622 /* NetworkManager */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = NetworkManager;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -325,6 +320,7 @@
 			files = (
 				C103ADBC2DA56265001DF622 /* ExploreViewModel.swift in Sources */,
 				C103ADC22DA56F99001DF622 /* AuthManager.swift in Sources */,
+				C103ADC42DA572F9001DF622 /* NetworkManager.swift in Sources */,
 				C103AD872DA559C5001DF622 /* ContentView.swift in Sources */,
 				C103AD852DA559C5001DF622 /* HWBGithubClientApp.swift in Sources */,
 				C103ADB82DA55B40001DF622 /* ProfileView.swift in Sources */,
