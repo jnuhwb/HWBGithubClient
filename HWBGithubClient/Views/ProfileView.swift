@@ -82,7 +82,7 @@ struct ProfileView: View {
             }
                                           
             Button(action: {
-                //todo logout
+                authManager.logout()
             }) {
                 Text("登出")
                     .font(.headline)

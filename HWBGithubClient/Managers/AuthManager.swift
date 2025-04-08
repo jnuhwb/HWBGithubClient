@@ -172,4 +172,11 @@ class AuthManager: NSObject, ObservableObject, ASWebAuthenticationPresentationCo
         }
         task.resume()
     }
+    
+    func logout() {
+        // 清除所有认证相关的数据
+        StorageManager.shared.clearAccessToken()
+        currentUser = nil
+        isAuthenticated = false
+    }
 }
