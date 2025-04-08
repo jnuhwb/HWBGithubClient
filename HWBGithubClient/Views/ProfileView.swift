@@ -21,7 +21,7 @@ struct ProfileView: View {
                     unauthenticatedView
                 }
             }
-            .navigationTitle("个人资料")
+            .navigationTitle(NSLocalizedString("个人资料", comment: ""))
         }
     }
     
@@ -31,18 +31,18 @@ struct ProfileView: View {
                 .font(.system(size: 60))
                 .foregroundColor(.gray)
             
-            Text("未登录")
+            Text(NSLocalizedString("未登录", comment: ""))
                 .font(.title2)
                 .foregroundColor(.secondary)
             
-            Text("登录后查看您的个人资料")
+            Text(NSLocalizedString("登录后查看您的个人资料", comment: ""))
                 .font(.subheadline)
                 .foregroundColor(.secondary)
             
             Button(action: {
                 authManager.loginWithGitHub()
             }) {
-                Text("登录")
+                Text(NSLocalizedString("登录", comment: ""))
                     .font(.headline)
                     .foregroundColor(.white)
                     .frame(width: 200, height: 44)
@@ -54,7 +54,7 @@ struct ProfileView: View {
             Button(action: {
                 authManager.loginWithBiometric()
             }) {
-                Text("面容登录")
+                Text(NSLocalizedString("面容登录", comment: ""))
                     .font(.headline)
                     .foregroundColor(.white)
                     .frame(width: 200, height: 44)
@@ -84,7 +84,7 @@ struct ProfileView: View {
             Button(action: {
                 authManager.logout()
             }) {
-                Text("登出")
+                Text(NSLocalizedString("登出", comment: ""))
                     .font(.headline)
                     .foregroundColor(.white)
                     .frame(width: 200, height: 44)
