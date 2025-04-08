@@ -14,6 +14,14 @@
 		C103AD962DA559C8001DF622 /* HWBGithubClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C103AD952DA559C8001DF622 /* HWBGithubClientTests.swift */; };
 		C103ADA02DA559C8001DF622 /* HWBGithubClientUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C103AD9F2DA559C8001DF622 /* HWBGithubClientUITests.swift */; };
 		C103ADA22DA559C8001DF622 /* HWBGithubClientUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C103ADA12DA559C8001DF622 /* HWBGithubClientUITestsLaunchTests.swift */; };
+		C103ADB42DA55B29001DF622 /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C103ADB32DA55B29001DF622 /* MainTabView.swift */; };
+		C103ADB62DA55B37001DF622 /* ExploreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C103ADB52DA55B37001DF622 /* ExploreView.swift */; };
+		C103ADB82DA55B40001DF622 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C103ADB72DA55B40001DF622 /* ProfileView.swift */; };
+		C103ADBA2DA55F5B001DF622 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = C103ADB92DA55F5B001DF622 /* Localizable.xcstrings */; };
+		C103ADBC2DA56265001DF622 /* ExploreViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C103ADBB2DA56265001DF622 /* ExploreViewModel.swift */; };
+		C103ADBE2DA56285001DF622 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = C103ADBD2DA56285001DF622 /* Models.swift */; };
+		C103ADC02DA56D0F001DF622 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C103ADBF2DA56D0F001DF622 /* ProfileViewModel.swift */; };
+		C103ADC22DA56F99001DF622 /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C103ADC12DA56F99001DF622 /* AuthManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +52,14 @@
 		C103AD9B2DA559C8001DF622 /* HWBGithubClientUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HWBGithubClientUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C103AD9F2DA559C8001DF622 /* HWBGithubClientUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HWBGithubClientUITests.swift; sourceTree = "<group>"; };
 		C103ADA12DA559C8001DF622 /* HWBGithubClientUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HWBGithubClientUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		C103ADB32DA55B29001DF622 /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
+		C103ADB52DA55B37001DF622 /* ExploreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreView.swift; sourceTree = "<group>"; };
+		C103ADB72DA55B40001DF622 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		C103ADB92DA55F5B001DF622 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
+		C103ADBB2DA56265001DF622 /* ExploreViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreViewModel.swift; sourceTree = "<group>"; };
+		C103ADBD2DA56285001DF622 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
+		C103ADBF2DA56D0F001DF622 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
+		C103ADC12DA56F99001DF622 /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +90,7 @@
 		C103AD782DA559C5001DF622 = {
 			isa = PBXGroup;
 			children = (
+				C103ADB92DA55F5B001DF622 /* Localizable.xcstrings */,
 				C103AD832DA559C5001DF622 /* HWBGithubClient */,
 				C103AD942DA559C8001DF622 /* HWBGithubClientTests */,
 				C103AD9E2DA559C8001DF622 /* HWBGithubClientUITests */,
@@ -94,6 +111,11 @@
 		C103AD832DA559C5001DF622 /* HWBGithubClient */ = {
 			isa = PBXGroup;
 			children = (
+				C103ADAE2DA55B03001DF622 /* Managers */,
+				C103ADB02DA55B03001DF622 /* Models */,
+				C103ADB22DA55B03001DF622 /* NetworkManager */,
+				C103ADAF2DA55B03001DF622 /* ViewModels */,
+				C103ADB12DA55B03001DF622 /* Views */,
 				C103AD842DA559C5001DF622 /* HWBGithubClientApp.swift */,
 				C103AD862DA559C5001DF622 /* ContentView.swift */,
 				C103AD882DA559C7001DF622 /* Assets.xcassets */,
@@ -125,6 +147,48 @@
 				C103ADA12DA559C8001DF622 /* HWBGithubClientUITestsLaunchTests.swift */,
 			);
 			path = HWBGithubClientUITests;
+			sourceTree = "<group>";
+		};
+		C103ADAE2DA55B03001DF622 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				C103ADC12DA56F99001DF622 /* AuthManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		C103ADAF2DA55B03001DF622 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				C103ADBB2DA56265001DF622 /* ExploreViewModel.swift */,
+				C103ADBF2DA56D0F001DF622 /* ProfileViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		C103ADB02DA55B03001DF622 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				C103ADBD2DA56285001DF622 /* Models.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		C103ADB12DA55B03001DF622 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				C103ADB32DA55B29001DF622 /* MainTabView.swift */,
+				C103ADB52DA55B37001DF622 /* ExploreView.swift */,
+				C103ADB72DA55B40001DF622 /* ProfileView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		C103ADB22DA55B03001DF622 /* NetworkManager */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = NetworkManager;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -208,11 +272,12 @@
 			};
 			buildConfigurationList = C103AD7C2DA559C5001DF622 /* Build configuration list for PBXProject "HWBGithubClient" */;
 			compatibilityVersion = "Xcode 14.0";
-			developmentRegion = en;
+			developmentRegion = "zh-Hans";
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 				Base,
+				"zh-Hans",
 			);
 			mainGroup = C103AD782DA559C5001DF622;
 			productRefGroup = C103AD822DA559C5001DF622 /* Products */;
@@ -233,6 +298,7 @@
 			files = (
 				C103AD8C2DA559C7001DF622 /* Preview Assets.xcassets in Resources */,
 				C103AD892DA559C7001DF622 /* Assets.xcassets in Resources */,
+				C103ADBA2DA55F5B001DF622 /* Localizable.xcstrings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -257,8 +323,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C103ADBC2DA56265001DF622 /* ExploreViewModel.swift in Sources */,
+				C103ADC22DA56F99001DF622 /* AuthManager.swift in Sources */,
 				C103AD872DA559C5001DF622 /* ContentView.swift in Sources */,
 				C103AD852DA559C5001DF622 /* HWBGithubClientApp.swift in Sources */,
+				C103ADB82DA55B40001DF622 /* ProfileView.swift in Sources */,
+				C103ADB62DA55B37001DF622 /* ExploreView.swift in Sources */,
+				C103ADB42DA55B29001DF622 /* MainTabView.swift in Sources */,
+				C103ADC02DA56D0F001DF622 /* ProfileViewModel.swift in Sources */,
+				C103ADBE2DA56285001DF622 /* Models.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -429,6 +502,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -457,6 +531,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

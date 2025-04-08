@@ -1,0 +1,52 @@
+{
+  "sourceLanguage" : "zh-Hans",
+  "strings" : {
+    "home" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "首页"
+          }
+        }
+      }
+    },
+    "name" : {
+
+    },
+    "profile" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "个人"
+          }
+        }
+      }
+    },
+    "Search..." : {
+
+    },
+    "个人资料" : {
+
+    },
+    "未登录" : {
+
+    },
+    "登出" : {
+
+    },
+    "登录" : {
+
+    },
+    "登录后查看您的个人资料" : {
+
+    },
+    "面容登录" : {
+
+    }
+  },
+  "version" : "1.0"
+}
