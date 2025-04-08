@@ -15,6 +15,7 @@ enum AuthError: Error {
     case invalidResponse
     case authenticationCancelled
     case presentationContextNotFound
+    case failedFetchUser
     
     var localizedDescription: String {
         switch self {
@@ -28,7 +29,10 @@ enum AuthError: Error {
             return "认证已取消"
         case .presentationContextNotFound:
             return "无法显示登录界面"
+        case .failedFetchUser:
+            return "获取用户信息失败"
         }
+        
     }
 }
 
@@ -43,6 +47,7 @@ class AuthManager: NSObject, ObservableObject, ASWebAuthenticationPresentationCo
     private let redirectUri = "githubclient://callback"
     
     private var accessToken: String = ""
+    @Published var currentUser: User?
     
     func loginWithGitHub() {
         let authorizationURL = URL(string: "https://github.com/login/oauth/authorize?client_id=\(clientId)&scope=repo,user&redirect_uri=\(redirectUri)")!
@@ -89,12 +94,21 @@ class AuthManager: NSObject, ObservableObject, ASWebAuthenticationPresentationCo
             if let data = data {
                 // 解析 JSON 响应，获取 access token
                 if let tokenResponse = try? JSONDecoder().decode(TokenResponse.self, from: data) {
-                    DispatchQueue.main.async {
-                        self.accessToken = tokenResponse.accessToken
-                        self.isAuthenticated = true
-                        
-                        StorageManager.shared.saveAccessToken(self.accessToken)
+                    self.accessToken = tokenResponse.accessToken
+                    StorageManager.shared.saveAccessToken(self.accessToken)
+
+                    self.fetchUserProfile() { result in
+                        switch result {
+                        case .success(let user):
+                            DispatchQueue.main.async {
+                                self.currentUser = user
+                                self.isAuthenticated = true
+                            }
+                        case .failure(let error):
+                            print("获取仓库列表失败: \(error)")
+                        }
                     }
+                    
                 }
             }
         }
@@ -118,13 +132,44 @@ class AuthManager: NSObject, ObservableObject, ASWebAuthenticationPresentationCo
         ) { success, error in
             if success {
                 if let token = StorageManager.shared.getAccessToken() {
-                    DispatchQueue.main.async {
-                        self.accessToken = token
-                        self.isAuthenticated = true
+                    self.fetchUserProfile() { result in
+                        switch result {
+                        case .success(let user):
+                            DispatchQueue.main.async {
+                                self.accessToken = token
+                                self.currentUser = user
+                                self.isAuthenticated = true
+                            }
+                        case .failure(let error):
+                            print("获取仓库列表失败: \(error)")
+                        }
                     }
                 }
             }
             
         }
+    }
+    
+    func fetchUserProfile(completion: @escaping (Result<User, Error>) -> Void) {
+        guard let token = StorageManager.shared.getAccessToken() else { return }
+        
+        var request = URLRequest(url: URL(string: "https://api.github.com/user")!)
+        request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+        request.setValue("application/vnd.github.v3+json", forHTTPHeaderField: "Accept")
+        
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+            if let data = data {
+                let str = String(data: data, encoding: .utf8)
+                print(str)
+                if let user = try? JSONDecoder().decode(User.self, from: data) {
+                    completion(.success(user))
+                } else {
+                    completion(.failure(AuthError.failedFetchUser))
+                }
+            } else {
+                completion(.failure(AuthError.failedFetchUser))
+            }
+        }
+        task.resume()
     }
 }

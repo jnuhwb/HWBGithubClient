@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SDWebImageSwiftUI
 
 struct ProfileView: View {
     @ObservedObject var authManager = AuthManager.shared
@@ -68,9 +69,18 @@ struct ProfileView: View {
     
     private var authenticatedView: some View {
         VStack {
-            Text("name")
-            Image(systemName: "person.crop.circle.badge.questionmark")
-            
+            if let name = authManager.currentUser?.name {
+                Text(name)
+            } else {
+                Text("No Name Available")
+            }
+            if let avatarUrl = authManager.currentUser?.avatarUrl {
+                WebImage(url: URL(string: avatarUrl))
+            } else {
+                Image(systemName: "person.crop.circle.badge.questionmark")
+
+            }
+                                          
             Button(action: {
                 //todo logout
             }) {

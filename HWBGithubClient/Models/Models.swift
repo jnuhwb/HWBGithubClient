@@ -45,3 +45,13 @@ struct TokenResponse: Codable {
         case accessToken = "access_token"
     }
 }
+
+struct User: Codable {
+    let avatarUrl: String
+    let name: String?
+    
+    enum CodingKeys: String, CodingKey {
+        case avatarUrl = "avatar_url"
+        case name
+    }
+}

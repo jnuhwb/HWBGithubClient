@@ -25,6 +25,7 @@
 		C103ADC42DA572F9001DF622 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C103ADC32DA572F9001DF622 /* NetworkManager.swift */; };
 		C103ADC92DA5937F001DF622 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C103ADC82DA5937F001DF622 /* StorageManager.swift */; };
 		C103ADCC2DA593A5001DF622 /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = C103ADCB2DA593A5001DF622 /* KeychainAccess */; };
+		C103ADCF2DA59CBD001DF622 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = C103ADCE2DA59CBD001DF622 /* SDWebImageSwiftUI */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +74,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C103ADCF2DA59CBD001DF622 /* SDWebImageSwiftUI in Frameworks */,
 				C103ADCC2DA593A5001DF622 /* KeychainAccess in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -211,6 +213,7 @@
 			name = HWBGithubClient;
 			packageProductDependencies = (
 				C103ADCB2DA593A5001DF622 /* KeychainAccess */,
+				C103ADCE2DA59CBD001DF622 /* SDWebImageSwiftUI */,
 			);
 			productName = HWBGithubClient;
 			productReference = C103AD812DA559C5001DF622 /* HWBGithubClient.app */;
@@ -287,6 +290,7 @@
 			mainGroup = C103AD782DA559C5001DF622;
 			packageReferences = (
 				C103ADCA2DA593A5001DF622 /* XCRemoteSwiftPackageReference "KeychainAccess" */,
+				C103ADCD2DA59CBD001DF622 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
 			);
 			productRefGroup = C103AD822DA559C5001DF622 /* Products */;
 			projectDirPath = "";
@@ -679,6 +683,14 @@
 				kind = branch;
 			};
 		};
+		C103ADCD2DA59CBD001DF622 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImageSwiftUI.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.1.3;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -686,6 +698,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = C103ADCA2DA593A5001DF622 /* XCRemoteSwiftPackageReference "KeychainAccess" */;
 			productName = KeychainAccess;
+		};
+		C103ADCE2DA59CBD001DF622 /* SDWebImageSwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C103ADCD2DA59CBD001DF622 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */;
+			productName = SDWebImageSwiftUI;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
